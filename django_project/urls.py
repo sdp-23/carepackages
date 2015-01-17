@@ -17,4 +17,4 @@ urlpatterns = patterns('',
     #Facebook urls
     (r'^facebook/', include('django_facebook.urls')),
 	(r'^accounts/', include('django_facebook.auth_urls')),
-) +  static(r'^static/', document_root='/var/www/static/')
+) +  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
