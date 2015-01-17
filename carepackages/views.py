@@ -4,4 +4,4 @@ import simplejson as json
 
 # Create your views here.
 def display(request):
-	return HttpResponse(json.dumps(str({"Status": "Success"}))
+	return HttpResponse(json.dumps(str({"Status": "Success"})))
