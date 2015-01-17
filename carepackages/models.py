@@ -8,7 +8,7 @@ class CarePackage(models.Model):
 	ups = models.IntegerField()
 	downs = models.IntegerField()
 	image_link = models.CharField(max_length = 250)
-	items = models.ManyToManyField(item)
+	items = models.ManyToManyField(Item)
 
 
 class Item(models.Model):
