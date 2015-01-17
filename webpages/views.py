@@ -8,4 +8,4 @@ from django.template import Template
 # Create your views here.
 def home(request):
 	t = Template(open(settings.BASE_DIR + "/templates/index.t"))
-	return t.render()
+	return HttpResponse(t.render())
