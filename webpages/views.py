@@ -9,6 +9,8 @@ from django.core.context_processors import csrf
 
 # Create your views here.
 def home(request):
-
 	t = Template(open(settings.BASE_DIR + "/templates/webpages/index.t").read())
 	return HttpResponse(t.render(RequestContext(request)))
+
+def login(request):
+	return HttpResponse(str(request.POST))
