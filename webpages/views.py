@@ -9,4 +9,4 @@ from django.template import Template
 def home(request):
 
 	t = Template(open(settings.BASE_DIR + "/templates/index.t").read())
-	return HttpResponse(t.render())
+	return HttpResponse(t.render({}))
