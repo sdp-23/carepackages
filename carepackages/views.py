@@ -15,5 +15,6 @@ def user_exists(request):
 		ret = False
 	return HttpResponse(str(ret))
 
-
+def create_user(request):
+	return HttpResponse("")
 
