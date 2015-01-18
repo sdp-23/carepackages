@@ -27,13 +27,15 @@
 				navigator.geolocation.getCurrentPosition(function(position) {
 				  console.log(position.coords.latitude);
 				});
-
+			var greenIcon = L.icon({
+			    iconUrl: 'images/greenpin.png',
+			    iconSize:     [25, 47], // size of the icon
+			    iconAnchor:   [12, 47], // point of the icon which will correspond to marker's location
+			});
 			var map = L.mapbox.map('map', 'marvinkennis.kpgncinl', {zoomControl: false}, {attributionControl: false});
 			    map.locate({setView : true});
 			var marker = L.marker(new L.LatLng(48.858093, 2.294694), {
-			    icon: L.mapbox.marker.icon({
-			        'marker-color': 'ff8888'
-			    }),
+			    icon: greenIcon,
 			    draggable: false
 			});
 			marker.bindPopup('This marker is draggable! Move it around.');
