@@ -26,7 +26,13 @@
     var register = function(){
     	var response_obj = FB.getLoginStatus(function(response){
     		var user_id = response.authResponse.userID;
-    		var user_name = document.getElementById("name").val();
+    		var user_name = document.getElementById("#name").val();
+    		var cc_num = document.getElementById("#cc_num").val();
+    		var expiry = document.getElementById("#expiry").val();
+    		var cvc = document.getElementById("#CVC").val();
+
+    		console.log(user_id + user_name + cc_num + expiry + cvc);
+
     	});
     }
     </script>
