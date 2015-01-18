@@ -38,5 +38,6 @@ def create_user(request):
 
     return HttpResponse("Success")
 
-    
+def make_order(request):
+    return HttpResponse("Success")
 
