@@ -27,11 +27,11 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			$.get( "ajax/test.html", function( data ) {
+     			$.get( "api/exists?id="+response.id, function( data ) {
   					if(data === "True"){
   						window.location = 'browse';
   					}else{
-  						window.location = 'login';
+  						window.location = 'register';
   					}
 				});
      	});
