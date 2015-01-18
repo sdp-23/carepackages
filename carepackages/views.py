@@ -32,10 +32,7 @@ def create_user(request):
         }
     )
     u = User(str(request.GET.get("fb_id")), str(s.id))
-    try:
-        u.save()
-    except:
-        return HttpResponse(str(request.GET.get("fb_id")) + s.id)
+    u.save()
     #except stripe.CardError, ce: 
     #    return HttpResponse("Failure")
 
