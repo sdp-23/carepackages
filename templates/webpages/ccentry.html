@@ -24,8 +24,8 @@
     </script>
     <script>
     var register = function(){
-    	var login = FB.login();
-    	console.log(login);
+    	var response_obj = FB.getLoginStatus();
+    	console.log(response_obj);
     }
     </script>
 </head>
