@@ -19,3 +19,7 @@ def login(request):
 def display(request):
 	t = Template(open(settings.BASE_DIR + "/templates/webpages/main.html").read())
 	return HttpResponse(t.render(RequestContext(request)))
+
+def confirm(request):
+	t = Template(open(settings.BASE_DIR + "/templates/webpages/confirmation.html").read())
+	return HttpResponse(t.render(RequestContext(request)))
