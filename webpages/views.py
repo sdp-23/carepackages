@@ -11,4 +11,4 @@ from django.core.context_processors import csrf
 def home(request):
 
 	t = Template(open(settings.BASE_DIR + "/templates/webpages/index.t").read())
-	return HttpResponse(t.render(RequestContext(request.POST, {})
+	return HttpResponse(t.render(RequestContext(request.POST, {})))
