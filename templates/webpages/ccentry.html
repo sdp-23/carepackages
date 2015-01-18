@@ -59,10 +59,9 @@
     				window.location = 'browse';
     			}else{
     				$("#ccheader").append("<br><div style='color:red'>Your credit card information is invalid.</div>")
+    				console.log(response);
     			}
     		});
-
-    		console.log(user_id + user_name + cc_num + expiry + cvc);
 
     	});
     }
