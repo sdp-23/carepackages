@@ -278,7 +278,7 @@ label {
 	padding-bottom:7px;
 }
 
-.cancelorder {
+.cancelorder, .cancelorder a, .cancelorder a:visited {
 	color:#73759a;
 	padding-top:30px;
 	text-align:center;
@@ -432,6 +432,10 @@ label {
 	left:36%;
 }
 
+#signoutbutton a, #signoutbutton a:visited {
+	color:white;
+	text-decoration: none;
+}
 #ccwrapper {
 	width:300px;
 	margin:0 auto 0 auto;
@@ -513,7 +517,7 @@ label {
 	margin-left:20px;
 	margin-top:3px;
 	border:3px solid black;
-	border-radius:28px;
+	border-radius:60px;
 	float:left;
 }
 

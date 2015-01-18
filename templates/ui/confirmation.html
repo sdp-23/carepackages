@@ -28,9 +28,8 @@
 				  console.log(position.coords.latitude);
 				});
 
-			var map = L.mapbox.map('map', 'marvinkennis.kpgncinl', {zoomControl: false}, {attributionControl: false})
-			    .setView([48.858093, 2.294694],28);
-
+			var map = L.mapbox.map('map', 'marvinkennis.kpgncinl', {zoomControl: false}, {attributionControl: false});
+			    map.locate({setView : true});
 			var marker = L.marker(new L.LatLng(48.858093, 2.294694), {
 			    icon: L.mapbox.marker.icon({
 			        'marker-color': 'ff8888'
@@ -98,7 +97,7 @@
 
 			<input type="submit" id="confirmbutton" value="Confirm carepackage delivery" action="request_deliveries.py"></form>
 		</div>
-		<div class="cancelorder">Nah, I'm good</div>
+		<div class="cancelorder"><a href="main.html">Nah, I'm good</a></div>
 	</div>
 
 
