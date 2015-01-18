@@ -5,7 +5,7 @@
     <input type="hidden" value="/login" name="next" />
     <input type="hidden" value="/login" name="connect_next" />
     <input type="hidden" value="/login" name="register_next" />
-    <input type="hidden" value="/" name="error_next" />
+    <input type="hidden" value="/error" name="error_next" />
     {% csrf_token %}
     <input onclick="F.connect(this.parentNode); return false;" type="image" src="{{ STATIC_URL }}django_facebook/images/facebook_login.png" />
 </form>
