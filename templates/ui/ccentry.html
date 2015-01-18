@@ -1,18 +1,19 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="carepackage.css">
-	<<meta name="viewport" content="width=500 user-scalable=no">
+	<meta name="viewport" content="width=500 user-scalable=no">
 </head>
 
 <body>
 	<div id="header">
-		<span class="typebutton" id="back">Back</span><span class="logotype">CAREPACKAGE.IO</span><span class="typebutton" id="done">Done</span>
+	<form id="stripe">
+		<span class="typebutton" id="back"><a href="landing.html">Back</a></span><span class="logotype">CAREPACKAGE.IO</span><input type="submit" class="typebutton" id="done" value="Done"/>
 	</div>
 
 	<div id="bodycontainer">
 		<div id="ccheader"><h1>Enter your payment details</h1><h2>You will only be charged when you place an order</h2></div>
 		<div id="ccform">
-		<form id="stripe">
+		
 			<div class="fwinput">
 				<label>Name on credit card</label>
 				<input type="text" placeholder="James William Anderson"/>

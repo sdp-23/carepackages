@@ -6,7 +6,7 @@ body {
 	margin:0;
 	padding:0;
 	background-color:#d9d9e6;
-	font-family:Din, sans-serif;
+	font-family:"gesta", sans-serif;
 }
 
 #header {
@@ -37,14 +37,20 @@ a {
 	color:#8c97ab;
 }
 
-#done {
+#done, #done a:visited {
 	float:right;
 	color:#37a8ff;
-	line-height:80px;
+	font-size:16px;
+	margin-top:22px;
+	background-color:white;
+
+	width:60px;
 }
 
-#back {
+#back, #back a:visited {
 	float:left;
+	color:#8c97ab;
+	opacity:.8;
 	line-height:80px;
 }
 #bodycontainer{
@@ -310,9 +316,10 @@ label {
 	background-color:#54af03;
 	color:white;
 	font-size:19px;
-	line-height:80px;
+	line-height:55px;
+	border-radius:0;
 	border:none;
-	font-weight:200;
+	font-weight:300;
 	background-image:url('images/confirm.png');
 	background-size:cover;
 }
