@@ -3,6 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/carepackage.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js"></script>
 
 <script>
       window.fbAsyncInit = function() {
@@ -26,7 +27,7 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			console.log(response);
+     			$().redirect('login', response);
      	});
    		} else {
      		console.log('User cancelled login or did not fully authorize.');
