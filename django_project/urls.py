@@ -4,6 +4,8 @@ from django.conf import settings
 
 from django.contrib import admin
 from carepackages import views
+from webpages import views
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
