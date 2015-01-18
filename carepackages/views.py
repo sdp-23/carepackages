@@ -19,7 +19,7 @@ def user_exists(request):
 def create_user(request):
     expiry = request.GET.get("expiry")
     exp_month = int(expiry)/100
-    exp_year = 100 * int(expiry) - exp_month
+    exp_year = (100 * int(expiry) - exp_month) + 2000
     #try:
     stripe.api_key = "sk_test_FdEFjYayNgCmvuaeUc0IAr7X"
     s=stripe.Customer.create(
