@@ -1,7 +1,11 @@
 <html>
 <head>
+<script src="//use.typekit.net/dfl5xsl.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
 	<link rel="stylesheet" type="text/css" href="/static/carepackage.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=500 user-scalable=no">
+
+
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
@@ -13,95 +17,71 @@
 	<div id="confirmation">
 		<div id="receiptholder">
 			<h1 id="orderconfirmation">Carepackage confirmation</h1>
-			<input type="text" id="locationinput" placeholder="33E West Walnut Street, Philadelphia">
+			<form>
+			<input type="text" class="location" name="location" id="locationinput" value="33E West Walnut Street, Philadelphia">
 			<div id='map'></div>
 
 			<script>
-
-
 			L.mapbox.accessToken = 'pk.eyJ1IjoibWFydmlua2VubmlzIiwiYSI6ImdkZklROXMifQ.nS5DKlMcq3QQ-JexjqTQwA';
-			var map = L.mapbox.map('map', 'marvinkennis.kpgncinl', {zoomControl: false}, {attributionControl: false})
-			    .setView([position.coords.latitude, position.coords.longitude],28);
-
-			var marker = L.marker(new L.LatLng(position.coords.latitude, position.coords.longitude), {
-			    icon: L.mapbox.marker.icon({
-			        'marker-color': 'ff8888'
-			    }),
+				navigator.geolocation.getCurrentPosition(function(position) {
+				  console.log(position.coords.latitude);
+				});
+			var greenIcon = L.icon({
+			    iconUrl: 'images/greenpin.png',
+			    iconSize:     [25, 47], // size of the icon
+			    iconAnchor:   [12, 47], // point of the icon which will correspond to marker's location
+			});
+			var map = L.mapbox.map('map', 'marvinkennis.kpgncinl', {zoomControl: false}, {attributionControl: false});
+			    map.locate({setView : true});
+			var marker = L.marker(new L.LatLng(48.858093, 2.294694), {
+			    icon: greenIcon,
 			    draggable: false
 			});
 			marker.bindPopup('This marker is draggable! Move it around.');
 			marker.addTo(map);
-
 			map.on('move', function () {
 			marker.setLatLng(map.getCenter());
 		//console.log(map.getCenter());
-	});
+			});
 	//Dragend event of map for update marker position
 			map.on('dragend', function(e) {
 			        var position = marker.getLatLng();
 				lat = Number(position['lat']).toFixed(5);
 				lng = Number(position['lng']).toFixed(5);
-
-
-
-
-			var geocoder;
-			var map;
-			var infowindow = new google.maps.InfoWindow();
-			function initialize() {
-			  geocoder = new google.maps.Geocoder();
-			}
-
-			function codeLatLng() {
-			  var lat = parseFloat(latlngStr[0]);
-			  var lng = parseFloat(latlngStr[1]);
-			  var latlng = new google.maps.LatLng(lat, lng);
-			  geocoder.geocode({'latLng': latlng}, function(results, status) {
-			    if (status == google.maps.GeocoderStatus.OK) {
-			      if (results[1]) {
-			        infowindow.setContent(results[1].formatted_address);
-			      } else {
-			        alert('No results found');
-			      }
-			    } else {
-			      alert('Geocoder failed due to: ' + status);
-			    }
-			  });
-			}
-
-			google.maps.event.addDomListener(window, 'load', initialize);
-
-
-				// REVERSE GEOCODING GOES HERE 
-
-
-
-				http://api.tiles.mapbox.com/v3/marvinkennis.kpgncinl/geocode/39.1223,12.443.json
-
-
-				//console.log(position);
-				setLeafLatLong(lat, lng);
+				var m = marker.getLatLng();
+				lat = m.lat;
+				lng = m.lng;
+    			
+    			$.getJSON( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyAoLrD3yxCOyEownYCLFVAyjkeRtu56Knc", function( data ) {
+    				addresses = data;
+    				response = addresses.results
+    				locationinput.value = response[1].formatted_address;
+				});
 			});
-			map.scrollWheelZoom.disable();
-
-
-
-
-
-
+			map.on('zoomend', function() {
+								var m = marker.getLatLng();
+				lat = m.lat;
+				lng = m.lng;
+    			$.getJSON( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyAoLrD3yxCOyEownYCLFVAyjkeRtu56Knc", function( data ) {
+    				addresses = data;
+    				response = addresses.results
+    				locationinput.value = response[1].formatted_address;
+				});
+		});
+			  
 			</script>
 
 			<div id="packagedetails">
 				<div id="packagedescription">
-					Hackathon package
-					<span class="packageinfo"></br>You saw it coming...</span>
+					Hangover package
+					<span class="packageinfo"></br>Rough night huh?</span>
 				</div>
 				<div id="packageprice">$10</div>
 			</div>
 
-			<div id="confirmbutton">Confirm carepackage delivery</div>
+			<input type="submit" id="confirmbutton" value="Confirm carepackage delivery" action="request_deliveries.py"></form>
 		</div>
-		<div class="cancelorder">Nah, I'm good</div>
+		<div class="cancelorder"><a href="main.html">Nah, I'm good</a></div>
 	</div>
 
 
