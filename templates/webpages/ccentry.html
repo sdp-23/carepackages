@@ -24,6 +24,7 @@
     </script>
     <script>
     var register = function(){
+    	console.log("Called");
     	var response_obj = FB.getLoginStatus(function(response){
     		var user_id = response.authResponse.userID;
     		var user_name = document.getElementById("name").val();
