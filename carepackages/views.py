@@ -3,14 +3,17 @@ from django.http import HttpResponse
 import simplejson as json
 from django.conf import settings
 from django.template import Template
+from carepackages.models import User
 
-BASE_DIR = settings.BASE_DIR
 
 # Create your views here.
-def home(request):
-	r = Template(open(BASE_DIR + "/assets/index.t").read())
-	return r.render()
+def user_exists(request):
+	user_id = request.GET.get("id")
+	if (len(User.objects.filter(f_id = user_id)) > 0):
+		ret = True
+	else:
+		ret = False
+	return HttpResponse(str(ret))
 
-def login(request):
-	return HttpResponse(str(request.POST))
+
 

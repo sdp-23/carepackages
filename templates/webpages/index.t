@@ -27,7 +27,13 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			window.location = 'login';
+     			$.get( "ajax/test.html", function( data ) {
+  					if(data === "True"){
+  						window.location = 'browse';
+  					}else{
+  						window.location = 'login';
+  					}
+				});
      	});
    		} else {
      		console.log('User cancelled login or did not fully authorize.');
