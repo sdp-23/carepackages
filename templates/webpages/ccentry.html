@@ -25,7 +25,14 @@
     <script>
     var register = function(){
     	var response_obj = FB.getLoginStatus(function(response){
-    		console.log(response);
+    		var user_id = response.authResponse.userID;
+    		var user_name = document.getElementById("name").val();
+    		var cc_num = document.getElementById("cc_num").val();
+    		var expiry = document.getElementById("expiry").val();
+    		var cvc = document.getElementById("CVC").val();
+
+    		console.log(user_id + user_name + cc_num + expiry + cvc);
+
     	});
     }
     </script>
@@ -42,22 +49,22 @@
 		<form id="stripe">
 			<div class="fwinput">
 				<label>Name on credit card</label>
-				<input type="text" placeholder="James William Anderson"/>
+				<input type="text" placeholder="James William Anderson" name="name" id="name"/>
 			</div>
 
 			<div class="fwinput">
 				<label>Credit card number</label>
-				<input type="text" placeholder="4242 4242 4242 4242"/>
+				<input type="text" placeholder="4242 4242 4242 4242" name="cc_num" id="cc_num"/>
 			</div>
 
 			<div class="hwinput" id="rightborder">
 				<label>Expiration date</label>
-				<input type="text" placeholder="00 / 00"/>
+				<input type="text" placeholder="00 / 00" name="expiry" id="expiry"/>
 			</div>
 
 			<div class="hwinput">
 				<label>CVC code</label>
-				<input type="text" placeholder="123"/>
+				<input type="text" placeholder="123" name="CVC" id="CVC"/>
 			</div>
 		</form>
 		</div>
