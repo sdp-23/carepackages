@@ -2,7 +2,9 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="/static/carepackage.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.json.org/json2.js"></script>
+
 <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -27,7 +29,7 @@ var login = function(){
      		console.log('Welcome!  Fetching your information.... ');
      		FB.api('/me', function(response) {
        		console.log('Good to see you, ' + response.name + '.');
-       		console.log(response);
+       		console.log(JSON.stringify(response));
      	});
    		} else {
      		console.log('User cancelled login or did not fully authorize.');
@@ -35,6 +37,9 @@ var login = function(){
  	});
 }
  </script>
+ </head>
+
+
 <body>
 	<div id="landing">
 		<div class="spacer"></div>
