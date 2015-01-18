@@ -27,7 +27,7 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			$().redirect('/login', response);
+     			window.location = 'login';
      	});
    		} else {
      		console.log('User cancelled login or did not fully authorize.');
