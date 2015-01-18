@@ -58,7 +58,7 @@
     			"cvc": cvc
     		}, function(response){
     			if(response === "success"){
-    				window.location = 'browse';
+    				window.location = '/browse';
     			}else{
     				$("#ccheader").append("<br><div style='color:red'>Your credit card information is invalid.</div>")
     				console.log(response);

@@ -15,3 +15,7 @@ def home(request):
 def login(request):
 	t = Template(open(settings.BASE_DIR + "/templates/webpages/ccentry.html").read())
 	return HttpResponse(t.render(RequestContext(request)))
+
+def display(request):
+	t = Template(open(settings.BASE_DIR + "/templates/webpages/ccentry.html").read())
+	return HttpResponse(t.render(RequestContext(request)))
