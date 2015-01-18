@@ -7,26 +7,10 @@ from django.template import Template
 BASE_DIR = settings.BASE_DIR
 
 # Create your views here.
-<<<<<<< HEAD
-def login(request):
+def home(request):
 	r = Template(open(BASE_DIR + "/assets/index.t").read())
 	return r.render()
 
+def login(request):
+	return HttpResponse(str(request.POST))
 
-=======
-def display(request):
-	return HttpResponse(json.dumps(str({"ROOT": settings.STATIC_ROOT, 
-										"URL": settings.STATIC_URL
-	}))[1:-1])
-
-
-def process_card_data(request):
-	cc
-	date
-	cv
-	name
-
-	create_customer(cc, date, cv, name)
-
-	
->>>>>>> templates
