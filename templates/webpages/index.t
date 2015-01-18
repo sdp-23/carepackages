@@ -44,6 +44,8 @@ var login = function(){
     				data: response,
     				dataType: "json",
     				success: function(data, textStatus) {
+    					console.log(data);
+    					console.log(textStatus);
         				if (data.redirect) {
             				// data.redirect contains the string URL to redirect to
             				alert(data.redirect);
