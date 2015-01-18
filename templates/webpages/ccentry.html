@@ -24,14 +24,15 @@
     </script>
     <script>
     var register = function(){
-    	alert("null");
+    	var login = FB.getLoginStatus();
+    	console.log(login);
     }
     </script>
 </head>
 
 <body>
 	<div id="header">
-		<div class="typebutton" id="back" onclick="window.location.href = ''">Back</div><span class="logotype">CAREPACKAGE.IO</span><div class="typebutton" id="done" onclick="register()">Done</div>
+		<div class="typebutton" id="back" onclick="window.location.href = '/'">Back</div><span class="logotype">CAREPACKAGE.IO</span><div class="typebutton" id="done" onclick="register()">Done</div>
 	</div>
 
 	<div id="bodycontainer">
