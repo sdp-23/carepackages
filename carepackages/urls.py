@@ -1,7 +1,11 @@
 from django.conf.urls import patterns, url
 
-from carepackages import views
+import carepackages.views as carepackages_views
 
 urlpatterns = patterns('',
+<<<<<<< HEAD
     url(r'^login$', views.login, name='index'),
+=======
+    url(r'^login$', carepackages_views.login, name='index'),
+>>>>>>> templates
 )

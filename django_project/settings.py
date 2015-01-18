@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'carepackages',
+    'webpages',    
     'django_facebook',
 )
 
@@ -55,6 +56,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'django_facebook.context_processors.facebook',
+)
+
+CONTEXT_PROCESSORS = (
+    'django.core.context_processors.csrf',
 )
 
 #Facebook
