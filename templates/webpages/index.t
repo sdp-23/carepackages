@@ -27,7 +27,6 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			alert(response);
      			$.ajax({
     				type: "POST",
     				url: '/login',
@@ -36,6 +35,7 @@ var login = function(){
     				success: function(data, textStatus) {
         				if (data.redirect) {
             				// data.redirect contains the string URL to redirect to
+            				alert(data.redirect);
             				window.location.href = data.redirect;
         					}
         				else {
