@@ -3,21 +3,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/carepackage.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://www.json.org/json2.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script>
-var csrftoken = $.cookie('csrftoken');
 
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }}});
-</script>
 <script>
       window.fbAsyncInit = function() {
         FB.init({
@@ -40,24 +26,7 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			$.ajax({
-    				type: "POST",
-    				url: '/login',
-    				data: response,
-    				dataType: "json",
-    				success: function(data, textStatus) {
-    					console.log(data);
-    					console.log(textStatus);
-        				if (data.redirect) {
-            				// data.redirect contains the string URL to redirect to
-            				alert(data.redirect);
-            				window.location.href = data.redirect;
-        					}
-        				else {
-            				// data.form contains the HTML for the replacement form
-        				}
-    				}
-				});
+     			console.log(response);
      	});
    		} else {
      		console.log('User cancelled login or did not fully authorize.');
