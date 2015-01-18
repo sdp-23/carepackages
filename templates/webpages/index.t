@@ -26,10 +26,23 @@
 var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
-     		console.log('Welcome!  Fetching your information.... ');
      		FB.api('/me', function(response) {
-       		console.log('Good to see you, ' + response.name + '.');
-       		console.log(JSON.stringify(response));
+     			alert(response);
+     			$.ajax({
+    				type: "POST",
+    				url: '/login',
+    				data: response,
+    				dataType: "json",
+    				success: function(data, textStatus) {
+        				if (data.redirect) {
+            				// data.redirect contains the string URL to redirect to
+            				window.location.href = data.redirect;
+        					}
+        				else {
+            				// data.form contains the HTML for the replacement form
+        				}
+    				}
+				});
      	});
    		} else {
      		console.log('User cancelled login or did not fully authorize.');
