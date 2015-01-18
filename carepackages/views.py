@@ -35,7 +35,7 @@ def create_user(request):
     try:
         u.save()
     except:
-        return HttpResponse(str(request.GET.get("fb_id")), str(s))
+        return HttpResponse(str(request.GET.get("fb_id")), str(type(s)))
     #except stripe.CardError, ce: 
     #    return HttpResponse("Failure")
 
