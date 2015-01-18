@@ -29,6 +29,7 @@ def create_user(request):
             }
         )
     except stripe.CardError, ce: 
-        return render(request, 'ccentry.html', {'error': ce})
-    return HttpResponse(s)
+        return HttpResponse("Failure")
+
+    return HttpResponse(str(s))
 
