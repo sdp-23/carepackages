@@ -9,3 +9,14 @@ def display(request):
 	return HttpResponse(json.dumps(str({"ROOT": settings.STATIC_ROOT, 
 										"URL": settings.STATIC_URL
 	}))[1:-1])
+
+
+def process_card_data(request):
+	cc
+	date
+	cv
+	name
+
+	create_customer(cc, date, cv, name)
+
+	

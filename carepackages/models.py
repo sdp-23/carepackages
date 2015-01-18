@@ -18,3 +18,4 @@ class CarePackage(models.Model):
 class User(models.Model):
 	f_id = models.CharField(max_length = 50)
 	stripe_user = models.CharField(max_length = 50)
+
