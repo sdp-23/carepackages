@@ -31,7 +31,7 @@ def create_user(request):
             'name': request.GET.get('user_name'),
         }
     )
-    u = User(str(request.GET.get("fb_id")), str(s["id"]))
+    u = User(str(request.GET.get("fb_id")), str(s.id))
     try:
         u.save()
     except:
