@@ -31,6 +31,16 @@
     		var expiry = $("#expiry").val();
     		var cvc = $("#CVC").val();
 
+    		$.post('/api/createUser', {
+    			"fb_id": user_id, 
+    			"name": user_name, 
+    			"cc_num": cc_num,
+    			"expiry": expiry, 
+    			"cvc": cvc
+    		}, function(response){
+    			alert(response);
+    		});
+
     		console.log(user_id + user_name + cc_num + expiry + cvc);
 
     	});
