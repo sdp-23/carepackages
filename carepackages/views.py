@@ -21,11 +21,11 @@ def create_user(request):
         stripe.api_key = "sk_test_FdEFjYayNgCmvuaeUc0IAr7X"
         s=stripe.Customer.create(
             description="Customer for test@example.com",
-            card={'number': request.POST.get('number'),
-                'exp_month': request.POST.get('exp_month'),
-                'exp_year': request.POST.get('exp_year'),
-                'cvc': request.POST.get('cvc'),
-                'name': request.POST.get('name'),
+            card={'number': request.GET.get('number'),
+                'exp_month': request.GET.get('exp_month'),
+                'exp_year': request.GET.get('exp_year'),
+                'cvc': request.GET.get('cvc'),
+                'name': request.GET.get('name'),
             }
         )
     except stripe.CardError, ce: 
