@@ -3,8 +3,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from django.contrib import admin
-from carepackages import views
-from webpages import views
+import carepackages.views
+import webpages.views
 
 admin.autodiscover()
 
