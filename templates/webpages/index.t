@@ -12,6 +12,13 @@ function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }}});
+</script>
+<script>
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '712828142168872',
@@ -33,11 +40,6 @@ var login = function(){
 	FB.login(function(response) {
    		if (response.authResponse) {
      		FB.api('/me', function(response) {
-     			$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }}});
      			$.ajax({
     				type: "POST",
     				url: '/login',
