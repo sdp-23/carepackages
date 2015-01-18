@@ -17,7 +17,7 @@ def user_exists(request):
 	return HttpResponse(str(ret))
 
 def create_user(request):
-    expiry = request.GET.get("expiry")
+    expiry = request.GET.get("expiry").replace('/', '')
     exp_month = int(expiry)/100
     exp_year = (100 * int(expiry) - exp_month) + 2000
     #try:
